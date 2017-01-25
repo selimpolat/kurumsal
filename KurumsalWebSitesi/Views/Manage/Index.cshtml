@@ -1,0 +1,35 @@
+﻿@model KurumsalWebSitesi.Models.IndexViewModel
+@{
+    ViewBag.Title = "Yönet";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Hesap Ayarlarınızı Değiştirin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Şifre:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Şifrenizi Değiştirin", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Oluşturmak", "Şifreyi Belirle")
+            }
+            ]
+        </dd>
+        <dt>Harici Girişler:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Yönet", "ManageLogins") ]
+        </dd>
+       
+        <dt>Kimlik doğrulaması:</dt>
+        
+    </dl>
+</div>
